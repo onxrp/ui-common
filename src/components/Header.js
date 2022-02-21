@@ -29,7 +29,7 @@ export default function Header () {
 							<Box>
 								<MuiLink href="https://onxrp.com/">
 									<Button color="primary" variant="contained">
-										Back to Home
+										Back to Home!
 									</Button>
 								</MuiLink>
 							</Box>
