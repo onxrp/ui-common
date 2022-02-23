@@ -8,9 +8,15 @@ import {
 	Link as MuiLink,
 	Button,
 } from '@mui/material'
+import IconButton from '@mui/material/IconButton';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
 
+interface HeaderProps {
+	onChangeColorTheme: () => void
+}
 
-const Header: React.FC<any> = () => {
+const Header: React.FC<HeaderProps> = ({ onChangeColorTheme }) => {
 	const theme = useTheme()
 	return (
 		<>
@@ -28,6 +34,11 @@ const Header: React.FC<any> = () => {
 										alt="onXRP"
 									/>
 								</MuiLink>
+							</Box>
+							<Box>
+								<IconButton sx={{ ml: 1 }} onClick={onChangeColorTheme} color="inherit">
+									{theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+								</IconButton>
 							</Box>
 							<Box>
 								<MuiLink href="https://onxrp.com/">
