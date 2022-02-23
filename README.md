@@ -1,4 +1,4 @@
-# ua-common
+# ui-common
 Common UI components 
 
 <b>Add to new project:</b> <br>
