@@ -1,6 +1,6 @@
 {
   "name": "onxrp-ui-common",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Shared components",
   "scripts": {
     "type-check": "tsc --noEmit",
