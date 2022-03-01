@@ -10,6 +10,8 @@ import YouTubeIcon from '@mui/icons-material/YouTube'
 import TwitterIcon from '@mui/icons-material/Twitter'
 import InstagramIcon from '@mui/icons-material/Instagram'
 
+import Logo from "./Logo";
+
 const Footer: React.FC<any> = () => {
 	return (
 		<>
@@ -21,13 +23,7 @@ const Footer: React.FC<any> = () => {
 						py={2}
 						display="flex"
 						alignItems="center">
-						<MuiLink href="https://onxrp.com/" target="_blank">
-							<img
-								src="/assets/images/logo.png"
-								style={{ maxWidth: '150px' }}
-								alt="onXRP DEX"
-							/>
-						</MuiLink>
+						<Logo />
 						<Typography
 							sx={{
 								fontWeight: 'lighter',
