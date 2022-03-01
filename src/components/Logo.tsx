@@ -1,7 +1,7 @@
 import React from "react"
 import { useTheme, Link } from '@mui/material'
-import LogoLightSrc from './images/logo_light.svg';
-import LogoDarkSrc from './images/logo_light.svg';
+import LogoLightSrc from '../assets/images/logo_light.svg';
+import LogoDarkSrc from '../assets/images/logo_light.svg';
 
 const Footer: React.FC<any> = () => {
 	const theme = useTheme()
