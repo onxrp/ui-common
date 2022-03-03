@@ -32,9 +32,15 @@ const Header: React.FC<HeaderProps> = ({ onChangeColorTheme }) => {
 								<Logo />
 							</Box>
 							<Box>
-								<IconButton sx={{ ml: 1 }} onClick={onChangeColorTheme} color="inherit">
-									{theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
-								</IconButton>
+								<Button
+									// @ts-ignore
+									color="button"
+									variant="contained"
+									sx={{ marginRight: '20px' }}
+									onClick={onChangeColorTheme}
+								>
+									{theme.palette.mode === 'dark' ? "Light mode" : "Dark mode"}
+								</Button>
 							</Box>
 							<Box>
 								<MuiLink href="https://onxrp.com/">
