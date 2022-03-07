@@ -15,9 +15,14 @@ import ConnectButton from "./ConnectButton";
 interface HeaderProps {
   onChangeColorTheme: () => void;
   hasWallet: boolean;
+  globalContext: any;
 }
 
-const Header: React.FC<HeaderProps> = ({ onChangeColorTheme, hasWallet = false }) => {
+const Header: React.FC<HeaderProps> = ({
+  onChangeColorTheme,
+  hasWallet = false,
+  globalContext,
+}) => {
   const theme = useTheme();
   return (
     <>
@@ -50,11 +55,11 @@ const Header: React.FC<HeaderProps> = ({ onChangeColorTheme, hasWallet = false }
                   </Button>
                 </MuiLink>
               </Box>
-			  {hasWallet &&
-				<Box>
-					<ConnectButton />
-				</Box>
-			  }
+              {hasWallet && globalContext && (
+                <Box>
+                  <ConnectButton globalContext={globalContext} />
+                </Box>
+              )}
             </Toolbar>
           </Container>
         </AppBar>

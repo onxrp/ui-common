@@ -12,12 +12,17 @@ import axios from "axios";
 // @ts-ignore
 import { ReactSession } from "react-client-session";
 import _ from "lodash";
-import { formatNumber } from "../Utils";
-import { GlobalContext } from "../contexts/GlobalState";
+import { formatNumber } from "../utils";
 
-export default function ConnectButton() {
+interface ConnectButtonProps {
+  globalContext: any;
+}
+
+export default function ConnectButton({ globalContext }: ConnectButtonProps) {
   const theme = useTheme();
-  const { state, loadAccount, signOutAccount } = useContext(GlobalContext);
+  const { state, loadAccount, signOutAccount } = useContext(
+    globalContext as any
+  );
   const activeInterval = useRef<any>();
   const [uuid, setUuid] = useState(null);
   const [signObj, setSignObj] = useState(null);
