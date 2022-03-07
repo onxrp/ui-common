@@ -49,7 +49,6 @@ const Header: React.FC<HeaderProps> = ({
                   // @ts-ignore
                   color="button"
                   variant="contained"
-                  sx={{ marginRight: "20px" }}
                   onClick={onChangeColorTheme}
                 >
                   {theme.palette.mode === "dark" ? "Light mode" : "Dark mode"}
