@@ -33,7 +33,14 @@ const Header: React.FC<HeaderProps> = ({
           color="white"
         >
           <Container>
-            <Toolbar disableGutters={true}>
+            <Toolbar
+              disableGutters={true}
+              sx={{
+                button: {
+                  marginLeft: "20px",
+                },
+              }}
+            >
               <Box sx={{ flexGrow: 1 }} textAlign="left">
                 <Logo />
               </Box>
