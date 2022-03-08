@@ -26,7 +26,7 @@ const Header: React.FC<HeaderProps> = ({
   const theme = useTheme();
   return (
     <>
-      <Box sx={{ flexGrow: 1 }} borderBottom={`4px solid #a100b9`}>
+      <Box sx={{ flexGrow: 1 }}>
         <AppBar
           position="static"
           // @ts-ignore
@@ -47,7 +47,7 @@ const Header: React.FC<HeaderProps> = ({
               <Box>
                 <Button
                   // @ts-ignore
-                  color="button"
+                  color="secondary"
                   variant="contained"
                   onClick={onChangeColorTheme}
                 >
@@ -57,7 +57,7 @@ const Header: React.FC<HeaderProps> = ({
               <Box>
                 <MuiLink href="https://onxrp.com/">
                   <Button color="primary" variant="contained">
-                    Back to Home
+                    Home
                   </Button>
                 </MuiLink>
               </Box>
