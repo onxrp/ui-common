@@ -15,16 +15,16 @@ import {
   useTheme,
 } from "@mui/material";
 import axios from "axios";
-// @ts-ignore
-import { ReactSession } from "react-client-session";
 import _ from "lodash";
+
 import { formatNumber } from "../utils";
 
 interface ConnectButtonProps {
   globalContext: any;
+  reactSession: any;
 }
 
-export default function ConnectButton({ globalContext }: ConnectButtonProps) {
+export default function ConnectButton({ globalContext, reactSession }: ConnectButtonProps) {
   const theme = useTheme();
   const { state, loadAccount, signOutAccount } = useContext(
     globalContext as any
@@ -44,8 +44,8 @@ export default function ConnectButton({ globalContext }: ConnectButtonProps) {
           .then((res: any) => {
             const account = res?.data?.response?.account;
             if (account) {
-              ReactSession.set("xpunk-account", account);
-              ReactSession.set("xpunk-xummObj", res?.data);
+              reactSession.set("xpunk-account", account);
+              reactSession.set("xpunk-xummObj", res?.data);
               clearInterval(activeInterval.current);
               loadAccount();
               setUuid(null);
