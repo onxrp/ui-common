@@ -15,7 +15,7 @@ import Logo from "./Logo";
 const Footer: React.FC<any> = () => {
 	return (
 		<>
-			<Box sx={{ flexGrow: 1 }} borderTop={`4px solid #a100b9`} pt={3}>
+			<Box sx={{ flexGrow: 1 }} pt={3}>
 				<Container>
 					<Box
 						sx={{ flexGrow: 1 }}
