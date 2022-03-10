@@ -46,6 +46,17 @@ const Header: React.FC<HeaderProps> = ({
               <Box sx={{ flexGrow: 1 }} textAlign="left">
                 <Logo />
               </Box>
+              {hasWallet && globalContext && reactSession && (
+                <Box
+                  display="flex"
+                  alignItems="center"
+                >
+                  <ConnectButton
+                    globalContext={globalContext}
+                    reactSession={reactSession}
+                  />
+                </Box>
+              )}
               <Box>
                 <Button
                   // @ts-ignore
@@ -63,14 +74,6 @@ const Header: React.FC<HeaderProps> = ({
                   </Button>
                 </MuiLink>
               </Box>
-              {hasWallet && globalContext && reactSession && (
-                <Box>
-                  <ConnectButton
-                    globalContext={globalContext}
-                    reactSession={reactSession}
-                  />
-                </Box>
-              )}
             </Toolbar>
           </Container>
         </AppBar>
