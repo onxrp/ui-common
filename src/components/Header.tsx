@@ -39,7 +39,7 @@ const Header: React.FC<HeaderProps> = ({
               disableGutters={true}
               sx={{
                 button: {
-                  marginLeft: "20px",
+                  marginLeft: { xs: "5px", md: "20px" },
                 },
               }}
             >
