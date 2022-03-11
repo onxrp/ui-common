@@ -50,6 +50,9 @@ const Header: React.FC<HeaderProps> = ({
                 <Box
                   display="flex"
                   alignItems="center"
+                  sx={{
+                    order: { xs: 2, md: 0 }
+                  }}
                 >
                   <ConnectButton
                     globalContext={globalContext}
@@ -66,13 +69,6 @@ const Header: React.FC<HeaderProps> = ({
                 >
                   {theme.palette.mode === "dark" ? "Light mode" : "Dark mode"}
                 </Button>
-              </Box>
-              <Box>
-                <MuiLink href="https://onxrp.com/">
-                  <Button color="primary" variant="contained">
-                    Home
-                  </Button>
-                </MuiLink>
               </Box>
             </Toolbar>
           </Container>
