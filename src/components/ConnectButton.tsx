@@ -199,7 +199,7 @@ export default function ConnectButton({ globalContext, reactSession }: ConnectBu
             ) : null}
             <Typography>{formatNumber(state.xrpBalance, 4)} XRP</Typography>
           </Box>
-          <Box display={{ md: "table" }} ml={2}>
+          <Box display={{ md: "table" }}>
             <Button
               color="primary"
               variant="contained"
