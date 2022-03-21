@@ -31,17 +31,18 @@ const Footer: React.FC<any> = () => {
 							}}>
 							powered by{' '}
 							<MuiLink
+								className="xpunks-logo"
 								href="https://xpunks.club/"
 								target="_blank">
 								<span
 									style={{
-										color: '#a100b9',
+										color: '#d530ac',
 										fontWeight: 'bold',
-									}}>
+									}}
+								>
 									X
 								</span>
-								<span style={{ fontWeight: 'bold' }}>PUNK</span>
-								s
+								<span style={{ fontWeight: 'bold', color: '#171732' }}>PUNKs</span>
 							</MuiLink>
 						</Typography>
 					</Box>
