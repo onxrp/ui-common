@@ -11,7 +11,7 @@ const Logo: React.FC<any> = () => {
 			<Link href="https://onxrp.com/" target="_blank" rel="noopener noreferrer" sx={{ flex: '0 0 150px' }}>
 				<img
 					src={theme.palette.mode === 'dark' ? LogoDarkModeSrc : LogoLightModeSrc}
-					style={{ maxHeight: '75px', maxWidth: '150px' }}
+					style={{ maxHeight: '75px' }}
 					alt="onXRP"
 				/>
 			</Link>
