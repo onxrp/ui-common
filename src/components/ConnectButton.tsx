@@ -142,6 +142,7 @@ export default function ConnectButton({ globalContext, reactSession }: ConnectBu
                 rel="noreferrer"
                 // @ts-ignore
                 alt="Open in Xumm"
+                target="_blank"
                 style={{
                   color: theme.palette.primary.main,
                   textDecoration: "none",
@@ -159,7 +160,7 @@ export default function ConnectButton({ globalContext, reactSession }: ConnectBu
                     display: { md: "none", xs: "block" },
                   }}
                 >
-                  Click Here to Open in Xumm
+                  Open in XUMM
                 </Button>
               </a>
             ) : null}
@@ -193,7 +194,6 @@ export default function ConnectButton({ globalContext, reactSession }: ConnectBu
                       mt: "30px",
                       p: 1,
                       borderRadius: "15px",
-                      color: "white.main",
                     }}
                   >
                     Sign with Xumm
@@ -208,7 +208,6 @@ export default function ConnectButton({ globalContext, reactSession }: ConnectBu
                   mt: "30px",
                   p: 1,
                   borderRadius: "15px",
-                  color: "white.main",
                 }}
               >
                 Cancel
