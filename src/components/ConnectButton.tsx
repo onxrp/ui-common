@@ -230,12 +230,12 @@ export default function ConnectButton({ globalContext, reactSession }: ConnectBu
             {state.baseCoin ? (
               <>
                 <Typography>
-                  {formatNumber(state.baseBalance, 4)} {state.baseCoin.ticker}
+                  {formatNumber(state.baseBalance, 4)} {state.baseCoin?.ticker}
                 </Typography>
                 <Typography sx={{ mx: "20px" }}>|</Typography>
               </>
             ) : null}
-            <Typography>{formatNumber(state.quoteBalance, 4)} {state.quoteCoin.ticker}</Typography>
+            <Typography>{formatNumber(state.quoteBalance, 4)} {state.quoteCoin?.ticker}</Typography>
           </Box>
           <Box display={{ md: "table" }}>
             <Button
