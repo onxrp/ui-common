@@ -227,15 +227,15 @@ export default function ConnectButton({ globalContext, reactSession }: ConnectBu
       ) : (
         <>
           <Box display={{ md: "flex", xs: "none" }}>
-            {state.altCoin ? (
+            {state.baseCoin ? (
               <>
                 <Typography>
-                  {formatNumber(state.altBalance, 4)} {state.altCoin.ticker}
+                  {formatNumber(state.baseBalance, 4)} {state.baseCoin.ticker}
                 </Typography>
                 <Typography sx={{ mx: "20px" }}>|</Typography>
               </>
             ) : null}
-            <Typography>{formatNumber(state.xrpBalance, 4)} XRP</Typography>
+            <Typography>{formatNumber(state.quoteBalance, 4)} {state.quoteCoin.ticker}</Typography>
           </Box>
           <Box display={{ md: "table" }}>
             <Button
