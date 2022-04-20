@@ -1,27 +1,35 @@
 {
   "name": "@onxrp/ui-common",
   "version": "1.0.18",
-  "description": "Shared components",
+  "description": "OnXRP Shared UI components",
   "scripts": {
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch",
     "build": "npm run build:types && npm run build:js",
     "build:types": "tsc --emitDeclarationOnly",
-    "build:js": "babel src --out-dir build --copy-files --extensions \".ts,.tsx\" --source-maps inline",
+    "build:js": "babel src --out-dir dist --copy-files --extensions \".ts,.tsx\" --source-maps inline",
     "prepare": "npm run build"
   },
-  "main": "build/index.js",
-  "types": "build/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "author": "onXRP",
   "license": "MIT",
-  "private": true,
-  "repository": "https://github.com/onxrp/ua-common.git",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "https://github.com/onxrp/ui-common.git",
   "dependencies": {
     "@mui/icons-material": "^5.4.2",
     "@mui/material": "^5.4.2",
+    "@sentry/react": "^6.19.2",
+    "axios": "^0.24.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "axios": "^0.24.0"
+    "socket.io-client": "^4.4.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",

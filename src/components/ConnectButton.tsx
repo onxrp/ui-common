@@ -5,8 +5,11 @@ import React, {
   useRef,
   useCallback,
 } from "react";
+import * as Sentry from "@sentry/react";
+import { io, Socket } from "socket.io-client";
 import {
   Box,
+  Link,
   Typography,
   Button,
   Dialog,
@@ -16,8 +19,13 @@ import {
 } from "@mui/material";
 import axios from "axios";
 import _ from "lodash";
-
 import { formatNumber } from "../utils";
+
+type SignInData = {
+  expired: boolean;
+  account?: string;
+  issuedUserToken?: string;
+};
 
 interface ConnectButtonProps {
   globalContext: any;
@@ -37,42 +45,45 @@ export default function ConnectButton({ globalContext, reactSession }: ConnectBu
   const [signInLink, setSignInLink] = useState(null);
 
   useEffect(() => {
+    let socket: Socket<{ signin: (data: any) => void }, any>;
     if (uuid) {
-      activeInterval.current = setInterval(() => {
-        axios
-          .get(`/api/trade/get-payload/${uuid}`)
-          .then((res: any) => {
-            const account = res?.data?.response?.account;
-            if (account) {
-              reactSession.set("xpunk-account", account);
-              reactSession.set("xpunk-xummObj", res?.data);
-              clearInterval(activeInterval.current);
-              loadAccount();
-              setUuid(null);
-              setSignObj(null);
-              setQrcode(null);
-              setIsSigning(false);
-            }
-          })
-          .catch((err: any) => {
-            console.log(err);
-          });
-      }, 3000);
+      socket = io(`${process.env.REACT_APP_AXIOS_ROOT_URL}`);
+      socket.emit("subscribe-uuid", uuid);
+      socket.on("signin", (data: SignInData) => {
+        if (!data.expired) {
+          if (data.account) {
+            reactSession.set("xpunk-account", data.account);
+            reactSession.set("xpunk-userToken", data.issuedUserToken);
+            clearInterval(activeInterval.current);
+            loadAccount();
+            setUuid(null);
+            setSignObj(null);
+            setQrcode(null);
+            setIsSigning(false);
+          }
+        } else {
+          // expired
+        }
+        socket.off("signin");
+      });
     }
+    return () => {
+      if (socket) socket.disconnect();
+    };
   }, [uuid]);
 
   const _handleConnectAccount = () => {
     axios
       .post(`/api/account/connect-wallet`)
-      .then((res: any) => {
+      .then((res) => {
         setUuid(res.data.uuid);
         setSignObj(res.data);
         setSignInLink(res.data.next.always);
         setQrcode(res.data.refs.qr_png);
         setIsSigning(true);
       })
-      .catch((err: any) => {
-        console.log(err);
+      .catch((err) => {
+        Sentry.captureException(err);
       });
   };
 
@@ -84,15 +95,15 @@ export default function ConnectButton({ globalContext, reactSession }: ConnectBu
   const _cancelTransaction = () => {
     axios
       .get(`/api/trade/cancel-payload/${uuid}`)
-      .then((res: any) => {
+      .then((res) => {
         setUuid(null);
         setSignObj(null);
         setQrcode(null);
         clearInterval(activeInterval.current);
         setIsSigning(false);
       })
-      .catch((err: any) => {
-        console.log("err", err);
+      .catch((err) => {
+        Sentry.captureException(err);
       });
   };
 
@@ -131,6 +142,7 @@ export default function ConnectButton({ globalContext, reactSession }: ConnectBu
                 rel="noreferrer"
                 // @ts-ignore
                 alt="Open in Xumm"
+                target="_blank"
                 style={{
                   color: theme.palette.primary.main,
                   textDecoration: "none",
@@ -148,7 +160,7 @@ export default function ConnectButton({ globalContext, reactSession }: ConnectBu
                     display: { md: "none", xs: "block" },
                   }}
                 >
-                  Click Here to Open in Xumm
+                  Open in XUMM
                 </Button>
               </a>
             ) : null}
@@ -161,20 +173,46 @@ export default function ConnectButton({ globalContext, reactSession }: ConnectBu
             ) : (
               <CircularProgress />
             )}
-            <Button
-              // @ts-ignore
-              variant="secondary"
-              onClick={_cancelTransactionDebounce}
-              fullWidth
-              sx={{
-                mt: "30px",
-                p: 1,
-                borderRadius: "15px",
-                color: "white.main",
-              }}
-            >
-              Cancel
-            </Button>
+
+            <Box sx={{ display: "flex", justifyContent: "space-around" }}>
+              {signInLink ? (
+                <Link
+                  href={signInLink}
+                  rel="noreferrer"
+                  target="_blank"
+                  sx={{
+                    color: theme.palette.primary.main,
+                    textDecoration: "none",
+                    display: { md: "inline-block", xs: "none" },
+                  }}
+                >
+                  <Button
+                    variant="contained"
+                    size="small"
+                    className="gradient-button"
+                    sx={{
+                      mt: "30px",
+                      p: 1,
+                      borderRadius: "15px",
+                    }}
+                  >
+                    Sign with Xumm
+                  </Button>
+                </Link>
+              ) : null}
+              <Button
+                variant="text"
+                size="small"
+                onClick={_cancelTransactionDebounce}
+                sx={{
+                  mt: "30px",
+                  p: 1,
+                  borderRadius: "15px",
+                }}
+              >
+                Cancel
+              </Button>
+            </Box>
           </DialogContent>
         </Dialog>
       ) : null}
