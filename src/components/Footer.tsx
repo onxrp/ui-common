@@ -42,7 +42,7 @@ const Footer: React.FC<any> = () => {
 								>
 									X
 								</span>
-								<span style={{ fontWeight: 'bold', color: '#171732' }}>PUNKs</span>
+								<span style={{ fontWeight: 'bold' }}>PUNKs</span>
 							</MuiLink>
 						</Typography>
 					</Box>
