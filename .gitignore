@@ -53,6 +53,7 @@ typings/
 .env
 
 dist/
+build/
 
 .vs/
 .vscode/

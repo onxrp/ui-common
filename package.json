@@ -1,6 +1,6 @@
 {
   "name": "@onxrp/ui-common",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "description": "OnXRP Shared UI components",
   "scripts": {
     "type-check": "tsc --noEmit",
@@ -38,6 +38,7 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
+    "@types/lodash": "^4.14.182",
     "@types/node": "^17.0.19",
     "@types/react": "^17.0.39",
     "@types/react-dom": "^17.0.11",
