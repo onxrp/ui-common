@@ -1,235 +1,242 @@
-import React from 'react'
+import React from "react";
 import {
 	Box,
 	Typography,
 	Grid,
 	Container,
+	MenuList,
+	MenuItem,
 	Link as MuiLink,
-} from '@mui/material'
-import YouTubeIcon from '@mui/icons-material/YouTube'
-import TwitterIcon from '@mui/icons-material/Twitter'
-import InstagramIcon from '@mui/icons-material/Instagram'
+} from "@mui/material";
 
-import Logo from "./Logo";
+import { ReactComponent as TwitterIcon } from "../assets/images/twitter-icon.svg";
+import { ReactComponent as YouTubeIcon } from "../assets/images/youtube-icon.svg";
+
+const footerTop = {
+	borderTop: "1px solid",
+	borderColor: "#16163280",
+	paddingTop: "40px",
+};
+
+const footerLinks = {
+	maxWidth: "100%",
+	"ul li:first-child": {
+		marginBottom: "1.5rem",
+		fontSize: "0.875rem"
+	},
+	h5: {
+		fontSize: "0.875rem",
+		fontWeight: "900",
+	},
+	li: {
+		padding: 0,
+		marginBottom: "1rem",
+		"&:hover": {
+			background: "none",
+		}
+	},
+	".MuiLink-root": {
+		fontSize: "0.75rem",
+		fontWeight: "400",
+		lineHeight: '1rem',
+		textTransform: 'uppercase',
+		color: "text.linkFooter"
+	},
+	".MuiList-root": {
+		padding: 0,
+		mb: "2rem"
+	},
+	".MuiMenuItem-root": {
+		minHeight: { xs: 0 }
+	}
+};
+
+const copyright = {
+	fontSize: '0.625rem',
+	justifyContent: 'space-between',
+	letterSpacing: '1px',
+	lineHeight: '0.75rem',
+	padding: '40px 0',
+	width: '100%',
+	borderTop: '1px solid',
+	".MuiGrid-item": {
+		mb: { xs: "20px", md: 0 }
+	},
+	".MuiTypography-root": {
+		fontSize: { xs: '0.75rem', md: "0.625rem" },
+		fontWeight: "400",
+		letterSpacing: "1px",
+		lineHeight: "12px",
+		textTransform: 'uppercase',
+	},
+	a: {
+		color: "text.linkFooter"
+	}
+};
 
 const Footer: React.FC<any> = () => {
+
 	return (
-		<>
-			<Box sx={{ flexGrow: 1 }} pt={3}>
-				<Container>
-					<Box
-						sx={{ flexGrow: 1 }}
-						justifyContent={{ md: 'flex-start', xs: 'center' }}
-						py={2}
-						display="flex"
-						alignItems="center">
-						<Logo />
-						<Typography
-							sx={{
-								fontWeight: 'lighter',
-								marginLeft: '0.7rem',
-							}}>
-							powered by{' '}
-							<MuiLink
-								className="xpunks-logo"
-								href="https://xpunks.club/"
-								target="_blank">
-								<span
-									style={{
-										color: '#d530ac',
-										fontWeight: 'bold',
-									}}
-								>
-									X
-								</span>
-								<span style={{ fontWeight: 'bold' }}>PUNKs</span>
-							</MuiLink>
-						</Typography>
-					</Box>
-				</Container>
-			</Box>
-			<Box pb={4}>
-				<Container>
-					<Box
-						mt={3}
-						mb={5}
-						height="1px"
-						width="100%"
-						style={{ backgroundColor: '#d1d1d1' }}
-					/>
-					<Grid container>
-						<Grid
-							item
-							md={4}
-							xs={12}
-							sx={{ textAlign: { md: 'left', xs: 'center' } }}>
-							<Box mb={{ md: 2.6, xs: 1 }}>
-								<MuiLink align="left" href="https://onxrp.com/">
-									Home
-								</MuiLink>
-							</Box>
-
-							<Box mb={1.5}>
-								<MuiLink
-									align="left"
-									target="_blank"
-									href="https://onxrp.com/education/"
-									style={{ fontWeight: '400' }}>
-									Education
-								</MuiLink>
-							</Box>
-							<Box mb={1.5}>
-								<MuiLink
-									align="left"
-									target="_blank"
-									href="https://onxrp.com/education/xrpl/"
-									style={{ fontWeight: '400' }}>
-									XRPL
-								</MuiLink>
-							</Box>
-							<Box mb={{ md: 1.5, xs: 2.7 }}>
-								<MuiLink
-									align="left"
-									href="https://onxrp.com/education/crypto-101/"
-									target="_blank"
-									style={{ fontWeight: '400' }}>
-									Crypto 101
-								</MuiLink>
-							</Box>
+		<footer>
+			<Container maxWidth="lg">
+				<Grid container sx={footerTop}>
+					<Grid item container sx={footerLinks} columnSpacing={{ xs: 5, md: 10 }} xs={12} wrap="wrap" zeroMinWidth>
+						<Grid item xs={6} md={"auto"}>
+							<MenuList>
+								<MenuItem>
+									<MuiLink href="https://onxrp.com/about/">
+										<Typography variant="h5">ABOUT</Typography>
+									</MuiLink>
+								</MenuItem>
+								<MenuItem>
+									<MuiLink href="https://onxrp.com/about/">ONXRP</MuiLink>
+								</MenuItem>
+								<MenuItem>
+									<MuiLink href="https://onxrp.com/about/#showcase-team">
+										SHOWCASE TEAM
+									</MuiLink>
+								</MenuItem>
+								<MenuItem>
+									<MuiLink href="https://onxrp.com/wp-content/uploads/2022/04/onxrp_whitepaper_1.1-2.pdf">
+										WHITE PAPER
+									</MuiLink>
+								</MenuItem>
+							</MenuList>
 						</Grid>
-
-						<Grid
-							item
-							md={4}
-							xs={12}
-							sx={{ textAlign: { md: 'left', xs: 'center' } }}>
-							<Box mb={{ md: 2.6, xs: 1 }}>
-								<MuiLink
-									align="left"
-									href="https://onxrp.com/about-us/"
-									target="_blank">
-									About Us
-								</MuiLink>
-							</Box>
-
-							<Box mb={1.5}>
-								<MuiLink
-									align="left"
-									href="https://onxrp.com/about-us/"
-									target="_blank"
-									style={{ fontWeight: '400' }}>
-									Our Team
-								</MuiLink>
-							</Box>
-							<Box mb={{ md: 1.5, xs: 2.7 }}>
-								<MuiLink
-									align="left"
-									href="https://onxrp.com/wp-content/uploads/2022/01/whitepaper.pdf"
-									target="_blank"
-									style={{ fontWeight: '400' }}>
-									White Paper
-								</MuiLink>
-							</Box>
+						<Grid item xs={6} md={"auto"}>
+							<MenuList>
+								<MenuItem>
+									<MuiLink href="https://dex.onxrp.com/">
+										<Typography variant="h5">TRADE</Typography>
+									</MuiLink>
+								</MenuItem>
+								<MenuItem>
+									<MuiLink href="https://dex.onxrp.com/">DEX</MuiLink>
+								</MenuItem>
+								<MenuItem>
+									<MuiLink href="https://oxp.onxrp.com/">OXP</MuiLink>
+								</MenuItem>
+								<MenuItem>
+									<MuiLink href="https://xpunks.club/">XPUNKS</MuiLink>
+								</MenuItem>
+							</MenuList>
 						</Grid>
-
-						<Grid
-							item
-							md={4}
-							xs={12}
-							sx={{ textAlign: { md: 'left', xs: 'center' } }}>
-							<Box mb={{ md: 2.6, xs: 1 }}>
-								<MuiLink align="left" href="#">
-									Projects
-								</MuiLink>
-							</Box>
-
-							<Box mb={1.5}>
-								<MuiLink
-									align="left"
-									href="https://onxrp.com/trusted-resources/"
-									target="_blank"
-									style={{ fontWeight: '400' }}>
-									Trusted Resources
-								</MuiLink>
-							</Box>
-							<Box mb={1.5}>
-								<MuiLink
-									align="left"
-									href="https://onxrp.com/projects/"
-									target="_blank"
-									style={{ fontWeight: '400' }}>
-									Featured Projects
-								</MuiLink>
-							</Box>
+						<Grid item xs={6} md={"auto"}>
+							<MenuList>
+								<MenuItem>
+									<MuiLink href="https://onxrp.com/telegraph/">
+										<Typography variant="h5">TELEGRAPH</Typography>
+									</MuiLink>
+								</MenuItem>
+								<MenuItem>
+									<MuiLink href="https://onxrp.com/education/">EDUCATION</MuiLink>
+								</MenuItem>
+								<MenuItem>
+									<MuiLink href="https://onxrp.com/category/xrpl/">XRPL</MuiLink>
+								</MenuItem>
+								<MenuItem>
+									<MuiLink href="https://onxrp.com/crypto-101/">
+										TRADING 101
+									</MuiLink>
+								</MenuItem>
+								<MenuItem>
+									<MuiLink href="https://onxrp.com/nft-glossary/">
+										GLOSSARY
+									</MuiLink>
+								</MenuItem>
+								<MenuItem>
+									<MuiLink href="https://onxrp.com/resources/">RESOURCES</MuiLink>
+								</MenuItem>
+							</MenuList>
 						</Grid>
-
-						<Grid item xs={12}>
-							<Box
-								mt={2}
-								display="flex"
-								flexDirection={{ md: 'row', xs: 'column' }}
-								justifyContent={{
-									md: 'space-between',
-									xs: 'center',
-								}}
-								alignItems="center">
-								<Box>
-									<Typography
-										fontWeight="400"
-										textAlign={{
-											md: 'left',
-											xs: 'center',
-										}}>
-										Follow Us
-									</Typography>
-									<Box
-										display="flex"
-										justifyContent={{
-											md: 'flex-start',
-											xs: 'center',
-										}}
-										alignItems="center"
-										mt={1}>
-										<MuiLink
-											href="https://www.youtube.com/channel/UC9v9WC-CyenpoNE94nYM8KQ"
-											rel="noreferrer"
-											target="_blank"
-											style={{ marginRight: '20px' }}>
-											<YouTubeIcon />
-										</MuiLink>
-										<MuiLink
-											href="https://twitter.com/onXRPdotcom"
-											rel="noreferrer"
-											target="_blank"
-											style={{ marginRight: '20px' }}>
-											<TwitterIcon />
-										</MuiLink>
-										<MuiLink
-											href="https://www.instagram.com/onxrpdotcom/"
-											rel="noreferrer"
-											target="_blank"
-											style={{ marginRight: '20px' }}>
-											<InstagramIcon />
-										</MuiLink>
-									</Box>
-								</Box>
-								<Box mt={{ md: 0, xs: 2 }}>
-									<Typography
-										fontWeight="lighter"
-										textAlign={{
-											md: 'right',
-											xs: 'center',
-										}}>
-										onXRP.com © 2022 All Rights Reserved.
-									</Typography>
-								</Box>
-							</Box>
+						<Grid item xs={6} md={"auto"}>
+							<MenuList>
+								<MenuItem>
+									<MuiLink href="https://xmc.onxrp.com/">
+										<Typography variant="h5">PROJECTS</Typography>
+									</MuiLink>
+								</MenuItem>
+								<MenuItem>
+									<MuiLink href="https://xmc.onxrp.com/">XMC</MuiLink>
+								</MenuItem>
+								<MenuItem>
+									<MuiLink href="https://onxrp.com/project-listing-requirements/">
+										LISTING REQUIREMENTS
+									</MuiLink>
+								</MenuItem>
+								<MenuItem>
+									<MuiLink href="https://xmc.onxrp.com/projects/OXP">
+										ONXRP
+									</MuiLink>
+								</MenuItem>
+								<MenuItem>
+									<MuiLink href="https://xmc.onxrp.com/projects/XPUNK">
+										XPUNKS
+									</MuiLink>
+								</MenuItem>
+							</MenuList>
+						</Grid>
+						<Grid item xs={6} md={"auto"}>
+							<MenuList>
+								<MenuItem>
+									<MuiLink href="https://onxrp.com/onxrp-tv/">
+										<Typography variant="h5">ONXRP TV</Typography>
+									</MuiLink>
+								</MenuItem>
+								<MenuItem>
+									<MuiLink href="https://onxrp.com/#">PODCASTS</MuiLink>
+								</MenuItem>
+								<MenuItem>
+									<MuiLink href="https://onxrp.com/#">
+										MARKET UPDATES
+									</MuiLink>
+								</MenuItem>
+								<MenuItem>
+									<MuiLink href="https://xmc.onxrp.com/#">
+										YOUTUBE
+									</MuiLink>
+								</MenuItem>
+							</MenuList>
 						</Grid>
 					</Grid>
-				</Container>
-			</Box>
-		</>
-	)
-}
+					<Grid item xs={12} lg container ml="auto" mb={3}>
+						<Grid item mr={4}>
+							<MuiLink href="https://www.youtube.com/channel/UC9v9WC-CyenpoNE94nYM8KQ" target="_blank">
+								<YouTubeIcon />
+							</MuiLink>
+						</Grid>
+						<Grid item>
+							<MuiLink href="https://twitter.com/onXRPdotcom" target="_blank">
+								<TwitterIcon />
+							</MuiLink>
+						</Grid>
+					</Grid>
+				</Grid>
+				<Grid container></Grid>
+				<Grid container justifyContent={"space-between"} sx={copyright}>
+					<Grid item xs={6} sm="auto">
+						<Typography >
+							ONXRP.COM © 2022 ALL RIGHTS RESERVED
+						</Typography>
+					</Grid>
+					<Grid item xs={6} sm="auto">
+						<MuiLink href="https://onxrp.com/terms-conditions/" >
+							TERMS & CONDITIONS
+						</MuiLink>
+						{" | "}
+						<MuiLink href="https://onxrp.com/privacy-policy/" >
+							PRIVACY POLICY
+						</MuiLink>
+					</Grid>
+					<Grid item >
+						<Typography>
+							POWERED BY <Box component="b" sx={{ color: "text.xpunk" }}>XPUNK</Box> WITH LOVE
+						</Typography>
+					</Grid>
+				</Grid>
+			</Container>
+		</footer>
+	);
+};
 
 export default Footer;
