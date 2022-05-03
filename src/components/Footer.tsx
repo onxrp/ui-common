@@ -12,6 +12,9 @@ import {
 import { ReactComponent as TwitterIcon } from "../assets/images/twitter-icon.svg";
 import { ReactComponent as YouTubeIcon } from "../assets/images/youtube-icon.svg";
 
+import Logo from "./Logo";
+import SubscribeInput from "./SubscribeInput";
+
 const footerTop = {
 	borderTop: "1px solid",
 	borderColor: "#16163280",
@@ -60,7 +63,8 @@ const copyright = {
 	width: '100%',
 	borderTop: '1px solid',
 	".MuiGrid-item": {
-		mb: { xs: "20px", md: 0 }
+		mb: { xs: "20px", md: 0 },
+		textAlign: "left"
 	},
 	".MuiTypography-root": {
 		fontSize: { xs: '0.75rem', md: "0.625rem" },
@@ -74,7 +78,11 @@ const copyright = {
 	}
 };
 
-const Footer: React.FC<any> = () => {
+interface FooterProps {
+	onSubscribe?: (email: string) => string | null;
+}
+
+const Footer: React.FC<FooterProps> = ({ onSubscribe }) => {
 
 	return (
 		<footer>
@@ -212,7 +220,14 @@ const Footer: React.FC<any> = () => {
 						</Grid>
 					</Grid>
 				</Grid>
-				<Grid container></Grid>
+				<Grid container justifyContent="space-between" sx={{ margin: "32px 0 40px" }} >
+					<Grid item textAlign="left" pr={4} >
+						<Logo />
+					</Grid>
+					<Grid item xs={12} sm md={6}>
+						<SubscribeInput onSubscribe={onSubscribe} />
+					</Grid>
+				</Grid>
 				<Grid container justifyContent={"space-between"} sx={copyright}>
 					<Grid item xs={6} sm="auto">
 						<Typography >
@@ -235,7 +250,7 @@ const Footer: React.FC<any> = () => {
 					</Grid>
 				</Grid>
 			</Container>
-		</footer>
+		</footer >
 	);
 };
 
