@@ -26,12 +26,12 @@ const buttonWrapperSx = {
 	top: 0,
 	right: 0,
 	height: "100%",
-	width: "35%",
+	width: { xs: "auto", sm: "35%" },
 	display: "flex",
 	alignItems: "center",
 	justifyContent: "flex-end",
 	padding: "4px",
-}
+} as any;
 
 const buttonSx = {
 	width: "100%",
@@ -41,12 +41,6 @@ const buttonSx = {
 	letterSpacing: { xs: 1, md: 2 }
 }
 
-const textSx = {
-	fontSize: '0.75rem',
-	lineHeight: "16px",
-	letterSpacing: "2px",
-	padding: " 0 2px"
-}
 
 interface SubscribeInputProps {
 	onSubscribe?: (email: string) => string | null;
@@ -94,7 +88,7 @@ const SubscribeInput: React.FC<SubscribeInputProps> = ({ onSubscribe }) => {
 						sx={buttonSx}
 						onClick={handleSubscribe}
 					>
-						Yes, Please {">"}
+						<Box component="span" sx={{ display: { xs: "none", sm: "block" } }}>Yes, Please</Box> {">"}
 					</Button>
 				</Box>
 			</Box>

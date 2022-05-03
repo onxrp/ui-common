@@ -8,6 +8,7 @@ import {
 	MenuItem,
 	Link as MuiLink,
 } from "@mui/material";
+import { Theme } from "@mui/material/styles";
 
 import { ReactComponent as TwitterIcon } from "../assets/images/twitter-icon.svg";
 import { ReactComponent as YouTubeIcon } from "../assets/images/youtube-icon.svg";
@@ -77,6 +78,14 @@ const copyright = {
 		color: "text.linkFooter"
 	}
 };
+
+const socialIcon = (theme: Theme) => ({
+	"& svg": {
+		...(theme.palette.mode === "dark" && {
+			filter: "brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(3447%) hue-rotate(79deg) brightness(79%) contrast(130%);"
+		}),
+	}
+});
 
 interface FooterProps {
 	onSubscribe?: (email: string) => string | null;
@@ -209,12 +218,12 @@ const Footer: React.FC<FooterProps> = ({ onSubscribe }) => {
 					</Grid>
 					<Grid item xs={12} lg container ml="auto" mb={3}>
 						<Grid item mr={4}>
-							<MuiLink href="https://www.youtube.com/channel/UC9v9WC-CyenpoNE94nYM8KQ" target="_blank">
+							<MuiLink href="https://www.youtube.com/channel/UC9v9WC-CyenpoNE94nYM8KQ" target="_blank" sx={socialIcon}>
 								<YouTubeIcon />
 							</MuiLink>
 						</Grid>
 						<Grid item>
-							<MuiLink href="https://twitter.com/onXRPdotcom" target="_blank">
+							<MuiLink href="https://twitter.com/onXRPdotcom" target="_blank" sx={socialIcon}>
 								<TwitterIcon />
 							</MuiLink>
 						</Grid>
