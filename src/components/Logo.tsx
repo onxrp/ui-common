@@ -1,19 +1,28 @@
 import React from "react"
 import { useTheme, Link } from '@mui/material'
-import LogoLightModeSrc from '../assets/images/logo_light_mode.svg';
-import LogoDarkModeSrc from '../assets/images/logo_dark_mode.svg';
+
+import { ReactComponent as LogoLightModeIcon } from "../assets/images/logo_light_mode.svg";
+import { ReactComponent as LogoDarkModeIcon } from "../assets/images/logo_dark_mode.svg";
+
+const link = {
+	flex: '0 0 150px',
+	maxHeight: "75px",
+	width: "100%",
+	maxWidth: "150px",
+	"& svg": {
+		width: "100%",
+		maxWidth: "150px",
+		maxHeight: "75px"
+	}
+}
 
 const Logo: React.FC<any> = () => {
 	const theme = useTheme()
 
 	return (
 		<>
-			<Link href="https://onxrp.com/" target="_blank" rel="noopener noreferrer" sx={{ flex: '0 0 150px' }}>
-				<img
-					src={theme.palette.mode === 'dark' ? LogoDarkModeSrc : LogoLightModeSrc}
-					style={{ maxHeight: '75px' }}
-					alt="onXRP"
-				/>
+			<Link href="https://onxrp.com/" target="_blank" rel="noopener noreferrer" sx={link}>
+				{theme.palette.mode === 'dark' ? <LogoDarkModeIcon /> : <LogoLightModeIcon />}
 			</Link>
 		</>
 	)
