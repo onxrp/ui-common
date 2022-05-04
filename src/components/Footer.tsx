@@ -131,10 +131,10 @@ const Footer: React.FC<FooterProps> = ({ onSubscribe }) => {
 									<MuiLink href="https://dex.onxrp.com/">DEX</MuiLink>
 								</MenuItem>
 								<MenuItem>
-									<MuiLink href="https://oxp.onxrp.com/">OXP</MuiLink>
+									<MuiLink href="https://dex.onxrp.com/">OXP</MuiLink>
 								</MenuItem>
 								<MenuItem>
-									<MuiLink href="https://xpunks.club/">XPUNKS</MuiLink>
+									<MuiLink href="https://dex.onxrp.com/?base=XPUNK&quote=XRP">XPUNKS</MuiLink>
 								</MenuItem>
 							</MenuList>
 						</Grid>
@@ -201,11 +201,8 @@ const Footer: React.FC<FooterProps> = ({ onSubscribe }) => {
 									</MuiLink>
 								</MenuItem>
 								<MenuItem>
-									<MuiLink href="https://onxrp.com/#">PODCASTS</MuiLink>
-								</MenuItem>
-								<MenuItem>
-									<MuiLink href="https://onxrp.com/#">
-										MARKET UPDATES
+									<MuiLink href="https://onxrp.com/onxrp-tv/">
+										PODCASTS
 									</MuiLink>
 								</MenuItem>
 								<MenuItem>
