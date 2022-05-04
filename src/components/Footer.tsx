@@ -18,7 +18,7 @@ import SubscribeInput from "./SubscribeInput";
 
 const footerTop = {
 	borderTop: "1px solid",
-	borderColor: "#16163280",
+	borderColor: "border.footer",
 	paddingTop: "40px",
 };
 
@@ -63,6 +63,7 @@ const copyright = {
 	padding: '40px 0',
 	width: '100%',
 	borderTop: '1px solid',
+	borderColor: "border.footer",
 	".MuiGrid-item": {
 		mb: { xs: "20px", md: 0 },
 		textAlign: "left"
@@ -152,7 +153,7 @@ const Footer: React.FC<FooterProps> = ({ onSubscribe }) => {
 									<MuiLink href="https://onxrp.com/category/xrpl/">XRPL</MuiLink>
 								</MenuItem>
 								<MenuItem>
-									<MuiLink href="https://onxrp.com/crypto-101/">
+									<MuiLink href="https://onxrp.com/category/trading-101/">
 										TRADING 101
 									</MuiLink>
 								</MenuItem>
