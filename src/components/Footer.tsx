@@ -207,7 +207,7 @@ const Footer: React.FC<FooterProps> = ({ onSubscribe }) => {
 									</MuiLink>
 								</MenuItem>
 								<MenuItem>
-									<MuiLink href="https://xmc.onxrp.com/#">
+									<MuiLink href="https://www.youtube.com/channel/UC9v9WC-CyenpoNE94nYM8KQ">
 										YOUTUBE
 									</MuiLink>
 								</MenuItem>
