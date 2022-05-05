@@ -67,7 +67,11 @@ const Header: React.FC<HeaderProps> = ({
                   variant="contained"
                   onClick={onChangeColorTheme}
                 >
-                  {theme.palette.mode === "dark" ? "Light mode" : "Dark mode"}
+                  {theme.breakpoints.up("sm")
+                    ? theme.palette.mode === "dark" ? "Light" : "Dark"
+                    : theme.palette.mode === "dark" ? "Light mode" : "Dark mode"
+
+                  }
                 </Button>
               </Box>
             </Toolbar>
