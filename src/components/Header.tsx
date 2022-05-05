@@ -67,10 +67,9 @@ const Header: React.FC<HeaderProps> = ({
                   variant="contained"
                   onClick={onChangeColorTheme}
                 >
-                  {theme.breakpoints.up("sm")
-                    ? theme.palette.mode === "dark" ? "Light" : "Dark"
-                    : theme.palette.mode === "dark" ? "Light mode" : "Dark mode"
-
+                  {theme.palette.mode === "dark"
+                    ? <>Light<Box component={"span"} sx={{ display: { xs: "none", sm: "inline-block" } }}> mode</Box></>
+                    : <>Dark<Box component={"span"} sx={{ display: { xs: "none", sm: "inline-block" } }}> mode</Box></>
                   }
                 </Button>
               </Box>
