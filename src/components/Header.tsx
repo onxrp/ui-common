@@ -68,8 +68,8 @@ const Header: React.FC<HeaderProps> = ({
                   onClick={onChangeColorTheme}
                 >
                   {theme.palette.mode === "dark"
-                    ? <>Light<Box component={"span"} sx={{ display: { xs: "none", sm: "inline-block" } }}> mode</Box></>
-                    : <>Dark<Box component={"span"} sx={{ display: { xs: "none", sm: "inline-block" } }}> mode</Box></>
+                    ? <>Light <Box component={"span"} sx={{ display: { xs: "none", sm: "inline-block" } }}>mode</Box></>
+                    : <>Dark <Box component={"span"} sx={{ display: { xs: "none", sm: "inline-block" } }}>mode</Box></>
                   }
                 </Button>
               </Box>
