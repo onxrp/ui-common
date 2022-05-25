@@ -4,7 +4,6 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
-import useTheme from "@mui/material/styles/useTheme";
 
 import Logo from "./Logo";
 import ConnectButton from "./ConnectButton";
@@ -16,13 +15,20 @@ interface HeaderProps {
   reactSession?: any;
 }
 
+const darkSx = (theme: any) => ({
+  display: theme.palette.mode === "dark" ? "block" : "none",
+});
+
+const lightSx = (theme: any) => ({
+  display: theme.palette.mode !== "dark" ? "block" : "none",
+});
+
 const Header: React.FC<HeaderProps> = ({
   onChangeColorTheme,
   hasWallet = false,
   globalContext,
   reactSession,
 }) => {
-  const theme = useTheme();
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>
@@ -64,27 +70,24 @@ const Header: React.FC<HeaderProps> = ({
                   variant="contained"
                   onClick={onChangeColorTheme}
                 >
-                  {theme.palette.mode === "dark" ? (
-                    <>
-                      Light{" "}
-                      <Box
-                        component={"span"}
-                        sx={{ display: { xs: "none", sm: "inline-block" } }}
-                      >
-                        mode
-                      </Box>
-                    </>
-                  ) : (
-                    <>
-                      Dark{" "}
-                      <Box
-                        component={"span"}
-                        sx={{ display: { xs: "none", sm: "inline-block" } }}
-                      >
-                        mode
-                      </Box>
-                    </>
-                  )}
+                  <Box sx={darkSx}>
+                    Light{" "}
+                    <Box
+                      component={"span"}
+                      sx={{ display: { xs: "none", sm: "inline-block" } }}
+                    >
+                      mode
+                    </Box>
+                  </Box>
+                  <Box sx={lightSx}>
+                    Dark{" "}
+                    <Box
+                      component={"span"}
+                      sx={{ display: { xs: "none", sm: "inline-block" } }}
+                    >
+                      mode
+                    </Box>
+                  </Box>
                 </Button>
               </Box>
             </Toolbar>
