@@ -15,11 +15,11 @@ interface HeaderProps {
   reactSession?: any;
 }
 
-const darkSx = (theme: any) => ({
+const darkButtonSx = (theme: any) => ({
   display: theme.palette.mode === "dark" ? "block" : "none",
 });
 
-const lightSx = (theme: any) => ({
+const lightButtonSx = (theme: any) => ({
   display: theme.palette.mode !== "dark" ? "block" : "none",
 });
 
@@ -70,7 +70,7 @@ const Header: React.FC<HeaderProps> = ({
                   variant="contained"
                   onClick={onChangeColorTheme}
                 >
-                  <Box sx={darkSx}>
+                  <Box sx={darkButtonSx}>
                     Light{" "}
                     <Box
                       component={"span"}
@@ -79,7 +79,7 @@ const Header: React.FC<HeaderProps> = ({
                       mode
                     </Box>
                   </Box>
-                  <Box sx={lightSx}>
+                  <Box sx={lightButtonSx}>
                     Dark{" "}
                     <Box
                       component={"span"}
