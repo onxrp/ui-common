@@ -1,13 +1,10 @@
 import React from "react";
-import {
-  Box,
-  AppBar,
-  Toolbar,
-  useTheme,
-  Container,
-  Link as MuiLink,
-  Button,
-} from "@mui/material";
+import Box from "@mui/material/Box";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import Container from "@mui/material/Container";
+import Button from "@mui/material/Button";
+import useTheme from "@mui/material/styles/useTheme";
 
 import Logo from "./Logo";
 import ConnectButton from "./ConnectButton";
@@ -51,7 +48,7 @@ const Header: React.FC<HeaderProps> = ({
                   display="flex"
                   alignItems="center"
                   sx={{
-                    order: { xs: 2, md: 0 }
+                    order: { xs: 2, md: 0 },
                   }}
                 >
                   <ConnectButton
@@ -67,10 +64,27 @@ const Header: React.FC<HeaderProps> = ({
                   variant="contained"
                   onClick={onChangeColorTheme}
                 >
-                  {theme.palette.mode === "dark"
-                    ? <>Light <Box component={"span"} sx={{ display: { xs: "none", sm: "inline-block" } }}>mode</Box></>
-                    : <>Dark <Box component={"span"} sx={{ display: { xs: "none", sm: "inline-block" } }}>mode</Box></>
-                  }
+                  {theme.palette.mode === "dark" ? (
+                    <>
+                      Light{" "}
+                      <Box
+                        component={"span"}
+                        sx={{ display: { xs: "none", sm: "inline-block" } }}
+                      >
+                        mode
+                      </Box>
+                    </>
+                  ) : (
+                    <>
+                      Dark{" "}
+                      <Box
+                        component={"span"}
+                        sx={{ display: { xs: "none", sm: "inline-block" } }}
+                      >
+                        mode
+                      </Box>
+                    </>
+                  )}
                 </Button>
               </Box>
             </Toolbar>
