@@ -6,7 +6,7 @@ import Container from "@mui/material/Container";
 import MenuList from "@mui/material/MenuList";
 import MenuItem from "@mui/material/MenuItem";
 import MuiLink from "@mui/material/Link";
-import { ThemeProvider, createTheme, Theme } from "@mui/material/styles";
+import { ThemeProvider, Theme } from "@mui/material/styles";
 
 import { ReactComponent as TwitterIcon } from "../assets/images/twitter-icon.svg";
 import { ReactComponent as YouTubeIcon } from "../assets/images/youtube-icon.svg";
@@ -89,12 +89,12 @@ const socialIcon = (theme: Theme) => ({
 
 interface FooterProps {
   onSubscribe?: (email: string) => string | null;
-  theme?: Theme;
+  theme: Theme;
 }
 
 const Footer: React.FC<FooterProps> = ({ onSubscribe, theme }) => {
   return (
-    <ThemeProvider theme={theme || createTheme()}>
+    <ThemeProvider theme={theme}>
       <footer>
         <Container maxWidth="lg">
           <Grid container sx={footerTop}>

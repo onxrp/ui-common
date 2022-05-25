@@ -4,7 +4,7 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
-import { ThemeProvider, createTheme, Theme } from "@mui/material/styles";
+import { ThemeProvider, Theme } from "@mui/material/styles";
 
 import Logo from "./Logo";
 import ConnectButton from "./ConnectButton";
@@ -14,7 +14,7 @@ interface HeaderProps {
   hasWallet?: boolean;
   globalContext?: any;
   reactSession?: any;
-  theme?: Theme;
+  theme: Theme;
 }
 
 const darkButtonSx = (theme: Theme) => ({
@@ -34,7 +34,7 @@ const Header: React.FC<HeaderProps> = ({
 }) => {
   return (
     <>
-      <ThemeProvider theme={theme || createTheme()}>
+      <ThemeProvider theme={theme}>
         <Box sx={{ flexGrow: 1 }}>
           <AppBar
             position="static"
