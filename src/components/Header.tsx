@@ -4,6 +4,7 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
+import { ThemeProvider, createTheme, Theme } from "@mui/material/styles";
 
 import Logo from "./Logo";
 import ConnectButton from "./ConnectButton";
@@ -13,13 +14,14 @@ interface HeaderProps {
   hasWallet?: boolean;
   globalContext?: any;
   reactSession?: any;
+  theme?: Theme;
 }
 
-const darkButtonSx = (theme: any) => ({
+const darkButtonSx = (theme: Theme) => ({
   display: theme.palette.mode === "dark" ? "block" : "none",
 });
 
-const lightButtonSx = (theme: any) => ({
+const lightButtonSx = (theme: Theme) => ({
   display: theme.palette.mode !== "dark" ? "block" : "none",
 });
 
@@ -28,72 +30,75 @@ const Header: React.FC<HeaderProps> = ({
   hasWallet = false,
   globalContext,
   reactSession,
+  theme,
 }) => {
   return (
     <>
-      <Box sx={{ flexGrow: 1 }}>
-        <AppBar
-          position="static"
-          // @ts-ignore
-          color="white"
-        >
-          <Container>
-            <Toolbar
-              disableGutters={true}
-              sx={{
-                button: {
-                  marginLeft: { xs: "5px", md: "20px" },
-                },
-              }}
-            >
-              <Box sx={{ flexGrow: 1 }} textAlign="left">
-                <Logo />
-              </Box>
-              {hasWallet && globalContext && reactSession && (
-                <Box
-                  display="flex"
-                  alignItems="center"
-                  sx={{
-                    order: { xs: 2, md: 0 },
-                  }}
-                >
-                  <ConnectButton
-                    globalContext={globalContext}
-                    reactSession={reactSession}
-                  />
+      <ThemeProvider theme={theme || createTheme()}>
+        <Box sx={{ flexGrow: 1 }}>
+          <AppBar
+            position="static"
+            // @ts-ignore
+            color="white"
+          >
+            <Container>
+              <Toolbar
+                disableGutters={true}
+                sx={{
+                  button: {
+                    marginLeft: { xs: "5px", md: "20px" },
+                  },
+                }}
+              >
+                <Box sx={{ flexGrow: 1 }} textAlign="left">
+                  <Logo />
                 </Box>
-              )}
-              <Box>
-                <Button
-                  // @ts-ignore
-                  color="secondary"
-                  variant="contained"
-                  onClick={onChangeColorTheme}
-                >
-                  <Box sx={darkButtonSx}>
-                    Light{" "}
-                    <Box
-                      component={"span"}
-                      sx={{ display: { xs: "none", sm: "inline-block" } }}
-                    >
-                      mode
-                    </Box>
+                {hasWallet && globalContext && reactSession && (
+                  <Box
+                    display="flex"
+                    alignItems="center"
+                    sx={{
+                      order: { xs: 2, md: 0 },
+                    }}
+                  >
+                    <ConnectButton
+                      globalContext={globalContext}
+                      reactSession={reactSession}
+                    />
                   </Box>
-                  <Box sx={lightButtonSx}>
-                    Dark{" "}
-                    <Box
-                      component={"span"}
-                      sx={{ display: { xs: "none", sm: "inline-block" } }}
-                    >
-                      mode
+                )}
+                <Box>
+                  <Button
+                    // @ts-ignore
+                    color="secondary"
+                    variant="contained"
+                    onClick={onChangeColorTheme}
+                  >
+                    <Box sx={darkButtonSx}>
+                      Light{" "}
+                      <Box
+                        component={"span"}
+                        sx={{ display: { xs: "none", sm: "inline-block" } }}
+                      >
+                        mode
+                      </Box>
                     </Box>
-                  </Box>
-                </Button>
-              </Box>
-            </Toolbar>
-          </Container>
-        </AppBar>
-      </Box>
+                    <Box sx={lightButtonSx}>
+                      Dark{" "}
+                      <Box
+                        component={"span"}
+                        sx={{ display: { xs: "none", sm: "inline-block" } }}
+                      >
+                        mode
+                      </Box>
+                    </Box>
+                  </Button>
+                </Box>
+              </Toolbar>
+            </Container>
+          </AppBar>
+        </Box>
+      </ThemeProvider>
     </>
   );
 };
