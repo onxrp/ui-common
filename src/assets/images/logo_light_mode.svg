@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 26.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+<svg version="1.1" id="Full_logo_light" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 200 60" style="enable-background:new 0 0 200 60;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:url(#SVGID_1_);}
 	.st1{fill:#171733;}
 </style>
-<g id="Full_logo">
-	
-		<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="16.2793" y1="32.3076" x2="60.1463" y2="32.3076" gradientTransform="matrix(1 0 0 -1 0 62)">
+<g id="Full_logo_light_group">
+	<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="16.2793" y1="32.3076" x2="60.1463" y2="32.3076" gradientTransform="matrix(1 0 0 -1 0 62)">
 		<stop  offset="0" style="stop-color:#0301F7"/>
 		<stop  offset="0.13" style="stop-color:#2301EA"/>
 		<stop  offset="0.33" style="stop-color:#5001D8"/>
