@@ -7,16 +7,14 @@ import React, {
 } from "react";
 import * as Sentry from "@sentry/react";
 import { io, Socket } from "socket.io-client";
-import {
-  Box,
-  Link,
-  Typography,
-  Button,
-  Dialog,
-  DialogContent,
-  CircularProgress,
-  useTheme,
-} from "@mui/material";
+import Box from "@mui/material/Box";
+import Link from "@mui/material/Link";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import Dialog from "@mui/material/Dialog";
+import DialogContent from "@mui/material/DialogContent";
+import CircularProgress from "@mui/material/CircularProgress";
+import useTheme from "@mui/material/styles/useTheme";
 import axios from "axios";
 import _ from "lodash";
 import { formatNumber } from "../utils";
@@ -32,7 +30,10 @@ interface ConnectButtonProps {
   reactSession: any;
 }
 
-export default function ConnectButton({ globalContext, reactSession }: ConnectButtonProps) {
+export default function ConnectButton({
+  globalContext,
+  reactSession,
+}: ConnectButtonProps) {
   const theme = useTheme();
   const { state, loadAccount, signOutAccount } = useContext(
     globalContext as any
@@ -235,7 +236,9 @@ export default function ConnectButton({ globalContext, reactSession }: ConnectBu
                 <Typography sx={{ mx: "20px" }}>|</Typography>
               </>
             ) : null}
-            <Typography>{formatNumber(state.quoteBalance, 4)} {state?.quoteCoin?.ticker}</Typography>
+            <Typography>
+              {formatNumber(state.quoteBalance, 4)} {state?.quoteCoin?.ticker}
+            </Typography>
           </Box>
           <Box display={{ md: "table" }}>
             <Button
