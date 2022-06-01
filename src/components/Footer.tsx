@@ -172,7 +172,7 @@ const Footer: React.FC<FooterProps> = ({ onSubscribe, theme }) => {
                     </MuiLink>
                   </MenuItem>
                   <MenuItem>
-                    <MuiLink href="https://onxrp.com/nft-glossary/">
+                    <MuiLink href="https://onxrp.com/glossary/">
                       GLOSSARY
                     </MuiLink>
                   </MenuItem>
