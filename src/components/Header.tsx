@@ -41,7 +41,7 @@ const Header: React.FC<HeaderProps> = ({
             // @ts-ignore
             color="white"
           >
-            <Container>
+            <Container className="page">
               <Toolbar
                 disableGutters={true}
                 sx={{
