@@ -6,23 +6,19 @@ import { ReactComponent as LogoLightModeIcon } from "../assets/images/logo_light
 import { ReactComponent as LogoDarkModeIcon } from "../assets/images/logo_dark_mode.svg";
 
 const link = {
-  flex: "0 0 150px",
-  maxHeight: "75px",
-  width: "100%",
-  maxWidth: "150px",
   "& svg": {
     width: "100%",
-    maxWidth: "150px",
+    maxWidth: { xs: "88px", sm: "124px", md: "157px" },
     maxHeight: "75px",
   },
 };
 
 const darkSx = (theme: any) => ({
-  display: theme.palette.mode === "dark" ? "block" : "none",
+  display: theme.palette.mode === "dark" ? "flex" : "none",
 });
 
 const lightSx = (theme: any) => ({
-  display: theme.palette.mode !== "dark" ? "block" : "none",
+  display: theme.palette.mode !== "dark" ? "flex" : "none",
 });
 
 const Logo: React.FC<any> = () => {
@@ -33,6 +29,7 @@ const Logo: React.FC<any> = () => {
         target="_blank"
         rel="noopener noreferrer"
         sx={link}
+        className="logo"
       >
         <Box sx={lightSx}>
           <LogoLightModeIcon />

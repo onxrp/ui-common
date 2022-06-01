@@ -40,6 +40,7 @@ const Header: React.FC<HeaderProps> = ({
             position="static"
             // @ts-ignore
             color="white"
+            classNames="header"
           >
             <Container className="page">
               <Toolbar
