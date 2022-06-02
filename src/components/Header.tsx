@@ -19,14 +19,6 @@ interface HeaderProps {
   theme: Theme;
 }
 
-const darkButtonSx = (theme: Theme) => ({
-  display: theme.palette.mode === "dark" ? "block" : "none",
-});
-
-const lightButtonSx = (theme: Theme) => ({
-  display: theme.palette.mode !== "dark" ? "block" : "none",
-});
-
 const Header: React.FC<HeaderProps> = ({
   onChangeColorTheme,
   hasWallet = false,
@@ -53,7 +45,7 @@ const Header: React.FC<HeaderProps> = ({
                   },
                 }}
               >
-                <Box sx={{ flexGrow: 1 }} textAlign="left">
+                <Box sx={{ flexGrow: 1 }} textAlign="left" zIndex={"1001"}>
                   <Logo />
                 </Box>
                 <Box sx={{ display: { xs: "none", md: "flex" } }}>
@@ -86,11 +78,13 @@ const Header: React.FC<HeaderProps> = ({
                 <Box sx={{ display: { xs: "flex", md: "none" } }}>
                   <MobileMenu>
                     <Grid container justifyContent={"center"} maxWidth="512px">
-                      <Grid item xs={12} justifyContent={"center"}>
-                        <ConnectButton
-                          globalContext={globalContext}
-                          reactSession={reactSession}
-                        />
+                      <Grid item xs={12} justifyContent={"center"} mb={2}>
+                        {hasWallet && globalContext && reactSession && (
+                          <ConnectButton
+                            globalContext={globalContext}
+                            reactSession={reactSession}
+                          />
+                        )}
                       </Grid>
                       <Grid item xs={12} justifyContent={"center"}>
                         <Button
@@ -98,7 +92,7 @@ const Header: React.FC<HeaderProps> = ({
                           variant="contained"
                           onClick={onChangeColorTheme}
                         >
-                          {theme.palette.mode !== "dark"
+                          {theme.palette.mode === "dark"
                             ? "Light mode"
                             : "Dark mode"}
                         </Button>
