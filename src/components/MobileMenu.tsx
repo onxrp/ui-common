@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import useTheme from "@mui/material/styles/useTheme";
 
+import { ReactComponent as MenuLightModeIcon } from "../assets/images/icon-hamburger.svg";
+import { ReactComponent as MenuDarkModeIcon } from "../assets/images/icon-hamburger-dark.svg";
+
 const navWrapperSx = (theme: any, isShow: boolean) => ({
   position: "fixed",
   top: "-1%",
@@ -55,16 +58,19 @@ const MobileMenu: React.FC<any> = ({ children }) => {
   return (
     <Box className="mobileMenu" justifyContent={"center"}>
       <Box display={"flex"}>
-        <img
-          src={
-            theme.palette.mode === "dark"
-              ? "/assets/images/icon-hamburger-dark.svg"
-              : "/assets/images/icon-hamburger.svg"
-          }
-          style={{ height: "14", width: "16", cursor: "pointer" }}
-          alt="menu"
-          onClick={() => setIsShow((state) => !state)}
-        />
+        {theme.palette.mode === "dark" ? (
+          <MenuDarkModeIcon
+            width={16}
+            height={14}
+            onClick={() => setIsShow((state) => !state)}
+          />
+        ) : (
+          <MenuLightModeIcon
+            width={16}
+            height={14}
+            onClick={() => setIsShow((state) => !state)}
+          />
+        )}
       </Box>
       <Box sx={(theme) => navWrapperSx(theme, isShow)}>
         <Box>{children}</Box>
