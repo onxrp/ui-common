@@ -8,12 +8,14 @@ import React, {
 import * as Sentry from "@sentry/react";
 import { io, Socket } from "socket.io-client";
 import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import CircularProgress from "@mui/material/CircularProgress";
+import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import useTheme from "@mui/material/styles/useTheme";
 import axios from "axios";
 import _ from "lodash";
@@ -124,99 +126,100 @@ export default function ConnectButton({
         >
           <DialogContent
             sx={{
-              backgroundColor: "#040f30",
-              borderRadius: "15px",
-              padding: { md: 4, xs: 2 },
+              backgroundColor: "background.modalBody",
+              borderRadius: "16px",
+              padding: { md: "40px", xs: "24px" },
               textAlign: "center",
+              minWidth: { xs: "320px", md: "500px" },
             }}
           >
-            <Typography
-              color={(theme.palette as any).white.main}
-              fontSize="1.2rem"
-              marginBottom={2}
+            <Grid
+              container
+              justifyContent={"space-between"}
+              alignItems="center"
+              mb={3}
             >
-              SIGN IN WITH XUMM
-            </Typography>
+              <Grid item>
+                <Typography
+                  color="text.primary"
+                  fontSize="1.5rem"
+                  marginBottom={0}
+                  component="h2"
+                >
+                  Connect to Wallet
+                </Typography>
+              </Grid>
+              <Grid item>
+                <Box
+                  sx={{
+                    padding: "3px",
+                    borderRadius: "50%",
+                    backgroundColor: "text.modal",
+                    cursor: "pointer",
+                  }}
+                  onClick={_cancelTransactionDebounce}
+                >
+                  <CloseRoundedIcon
+                    sx={(theme) => ({
+                      display: "flex",
+                      fontSize: "0.625rem",
+                      stroke: theme.palette.text.secondary,
+                      strokeWidth: "2px",
+                    })}
+                  />
+                </Box>
+              </Grid>
+            </Grid>
             {signInLink ? (
-              <a
-                href={signInLink}
-                rel="noreferrer"
-                // @ts-ignore
-                alt="Open in Xumm"
-                target="_blank"
-                style={{
-                  color: theme.palette.primary.main,
-                  textDecoration: "none",
-                  display: "block",
-                  marginBottom: "1.2rem",
+              <Grid
+                container
+                sx={{
+                  display: { md: "none", xs: "block" },
+                  justifyContent: "center",
                 }}
               >
-                <Button
-                  fullWidth
-                  variant="contained"
-                  className="gradient-button"
-                  sx={{
-                    p: 1.5,
-                    borderRadius: "15px",
-                    display: { md: "none", xs: "block" },
-                  }}
-                >
-                  Open in XUMM
-                </Button>
-              </a>
-            ) : null}
-            {qrCode ? (
-              <img
-                src={qrCode}
-                alt="Scan QR Code"
-                style={{ maxWidth: "250px", width: "100%" }}
-              />
-            ) : (
-              <CircularProgress />
-            )}
-
-            <Box sx={{ display: "flex", justifyContent: "space-around" }}>
-              {signInLink ? (
-                <Link
+                <a
                   href={signInLink}
                   rel="noreferrer"
+                  // @ts-ignore
+                  alt="Open in Xumm"
                   target="_blank"
-                  sx={{
+                  style={{
                     color: theme.palette.primary.main,
                     textDecoration: "none",
-                    display: { md: "inline-block", xs: "none" },
+                    display: "block",
+                    marginBottom: "1.2rem",
                   }}
                 >
                   <Button
+                    fullWidth
                     variant="contained"
-                    size="small"
                     className="gradient-button"
                     sx={{
-                      mt: "30px",
-                      p: 1,
+                      p: 1.5,
                       borderRadius: "15px",
                     }}
                   >
-                    Sign with Xumm
+                    Open in XUMM
                   </Button>
-                </Link>
-              ) : null}
-              <Button
-                variant="text"
-                size="small"
-                onClick={_cancelTransactionDebounce}
-                sx={{
-                  mt: "30px",
-                  p: 1,
-                  borderRadius: "15px",
-                }}
-              >
-                Cancel
-              </Button>
-            </Box>
+                </a>
+              </Grid>
+            ) : null}
+            <Grid container justifyContent="center">
+              {qrCode ? (
+                <img
+                  src={qrCode}
+                  alt="Scan QR Code"
+                  style={{ maxWidth: "250px", width: "100%" }}
+                />
+              ) : (
+                <CircularProgress />
+              )}
+            </Grid>
           </DialogContent>
         </Dialog>
       ) : null}
+
       {!state.account ? (
         <Button
           color="primary"
