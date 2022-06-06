@@ -69,7 +69,7 @@ const Header: React.FC<HeaderProps> = ({
                       variant="contained"
                       onClick={onChangeColorTheme}
                     >
-                      {theme.palette.mode !== "dark"
+                      {theme.palette.mode === "dark"
                         ? "Light mode"
                         : "Dark mode"}
                     </Button>
