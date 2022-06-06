@@ -141,7 +141,7 @@ export default function ConnectButton({
             >
               <Grid item>
                 <Typography
-                  color="text.primary"
+                  color="text.modal"
                   fontSize="1.5rem"
                   marginBottom={0}
                   component="h2"
@@ -160,12 +160,12 @@ export default function ConnectButton({
                   onClick={_cancelTransactionDebounce}
                 >
                   <CloseRoundedIcon
-                    sx={(theme) => ({
+                    sx={{
                       display: "flex",
                       fontSize: "0.625rem",
-                      stroke: theme.palette.text.secondary,
+                      stroke: "background.modalBody",
                       strokeWidth: "2px",
-                    })}
+                    }}
                   />
                 </Box>
               </Grid>
