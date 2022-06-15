@@ -48,7 +48,7 @@ const Header: React.FC<HeaderProps> = ({
                 <Box sx={{ flexGrow: 1 }} textAlign="left" zIndex={"1001"}>
                   <Logo />
                 </Box>
-                <Box sx={{ display: { xs: "none", md: "flex" } }}>
+                <Box>
                   {hasWallet && globalContext && reactSession && (
                     <Box
                       display="flex"
@@ -68,6 +68,7 @@ const Header: React.FC<HeaderProps> = ({
                       color="secondary"
                       variant="contained"
                       onClick={onChangeColorTheme}
+                      className="theme-mode-btn"
                     >
                       {theme.palette.mode === "dark"
                         ? "Light mode"
@@ -75,7 +76,7 @@ const Header: React.FC<HeaderProps> = ({
                     </Button>
                   </Box>
                 </Box>
-                <Box sx={{ display: { xs: "flex", md: "none" } }}>
+                <Box sx={{ display: { xs: "none", md: "none" } }}>
                   <MobileMenu>
                     <Grid container justifyContent={"center"} maxWidth="512px">
                       <Grid item xs={12} justifyContent={"center"} mb={2}>
