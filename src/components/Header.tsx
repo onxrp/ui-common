@@ -53,9 +53,6 @@ const Header: React.FC<HeaderProps> = ({
                     <Box
                       display="flex"
                       alignItems="center"
-                      sx={{
-                        order: { xs: 2, md: 0 },
-                      }}
                     >
                       <ConnectButton
                         globalContext={globalContext}
