@@ -48,7 +48,7 @@ const Header: React.FC<HeaderProps> = ({
                 <Box sx={{ flexGrow: 1 }} textAlign="left" zIndex={"1001"}>
                   <Logo />
                 </Box>
-                <Box>
+                <Box display="flex">
                   {hasWallet && globalContext && reactSession && (
                     <Box
                       display="flex"
