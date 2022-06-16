@@ -17,6 +17,7 @@ interface HeaderProps {
   globalContext?: any;
   reactSession?: any;
   theme: Theme;
+  walletConnectBtn?: React.ReactNode;
 }
 
 const Header: React.FC<HeaderProps> = ({
@@ -25,6 +26,7 @@ const Header: React.FC<HeaderProps> = ({
   globalContext,
   reactSession,
   theme,
+  walletConnectBtn,
 }) => {
   return (
     <>
@@ -49,7 +51,15 @@ const Header: React.FC<HeaderProps> = ({
                   <Logo />
                 </Box>
                 <Box display="flex">
-                  {hasWallet && globalContext && reactSession && (
+                  {walletConnectBtn &&
+                    <Box
+                      display="flex"
+                      alignItems="center"
+                    >
+                      {walletConnectBtn}
+                    </Box>
+                  }
+                  {!walletConnectBtn && hasWallet && globalContext && reactSession && (
                     <Box
                       display="flex"
                       alignItems="center"

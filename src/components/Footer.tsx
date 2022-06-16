@@ -256,7 +256,7 @@ const Footer: React.FC<FooterProps> = ({ onSubscribe, theme }) => {
             justifyContent="space-between"
             sx={{ margin: "32px 0 40px" }}
           >
-            <Grid item textAlign="left" pr={4}>
+            <Grid item textAlign="left" alignSelf={"center"} pr={4} mb={{ xs: 3, sm: 0 }}>
               <Logo />
             </Grid>
             <Grid item xs={12} sm md={6}>
@@ -288,7 +288,7 @@ const Footer: React.FC<FooterProps> = ({ onSubscribe, theme }) => {
           </Grid>
         </Container>
       </footer>
-    </ThemeProvider>
+    </ThemeProvider >
   );
 };
 
