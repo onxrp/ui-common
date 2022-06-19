@@ -48,7 +48,7 @@ const buttonStyle = {
   height: 4,
   backgroundColor: "#d8d8d8",
   border: 0,
-  borderRadius: 4,
+  borderRadius: "24px",
 };
 
 const MobileMenu: React.FC<any> = ({ children }) => {
