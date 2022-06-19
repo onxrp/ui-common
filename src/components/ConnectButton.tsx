@@ -127,7 +127,7 @@ export default function ConnectButton({
           <DialogContent
             sx={{
               backgroundColor: "background.modalBody",
-              borderRadius: "16px",
+              borderRadius: "24px",
               padding: { md: "40px", xs: "24px" },
               textAlign: "center",
               minWidth: { xs: "320px", md: "500px" },
@@ -197,7 +197,7 @@ export default function ConnectButton({
                     className="gradient-button"
                     sx={{
                       p: 1.5,
-                      borderRadius: "15px",
+                      borderRadius: "24px",
                     }}
                   >
                     Open in XUMM
