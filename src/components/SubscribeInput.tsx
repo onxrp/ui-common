@@ -12,7 +12,7 @@ const inputWrapperSx = {
 const inputSx = {
   background: "transparent",
   border: "1px solid #c2c2c8",
-  borderRadius: 24,
+  borderRadius: "24px",
   padding: "15px 35% 17px 40px",
   height: 48,
   "& input": {
