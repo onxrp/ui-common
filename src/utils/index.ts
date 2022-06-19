@@ -13,16 +13,22 @@ const median = (arr: number[]) => {
 
 export const formatNumber = (
   value: number | string,
-  minDecimals?: number,
-  maxDecimals?: number
+  minDecimals = 2,
+  maxDecimals = 6,
+  isXRP: boolean = false
 ) => {
   const formatter = Intl.NumberFormat("en-US", {
     style: "decimal",
     useGrouping: true,
-    minimumFractionDigits: minDecimals !== null ? minDecimals : 2,
-    maximumFractionDigits: maxDecimals !== null ? maxDecimals : 6,
+    minimumFractionDigits: minDecimals,
+    maximumFractionDigits: maxDecimals,
   });
-  return formatter.format(
-    parseFloat((value || "0").toString().replaceAll(",", ""))
-  );
+
+  const _value = value
+    ? isXRP
+      ? parseFloat(value.toString().replaceAll(",", "")) / 1_000_000
+      : parseFloat(value.toString().replaceAll(",", ""))
+    : 0;
+
+  return formatter.format(_value);
 };
