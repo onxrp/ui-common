@@ -22,7 +22,7 @@ const footerTop = {
 
 const footerLinks = {
   maxWidth: "100%",
-  "ul li:first-child": {
+  "ul li:first-of-type": {
     marginBottom: "1.5rem",
     fontSize: "0.875rem",
   },
