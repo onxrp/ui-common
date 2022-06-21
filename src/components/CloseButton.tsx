@@ -12,6 +12,10 @@ const CloseButton: React.FC<any> = (props) => {
           cursor: "pointer",
           width: "16px",
           height: "16px",
+          "& svg": {
+            maxWidth: "100%",
+            maxHeight: "100%"
+          }
         }}
         {...props}
       >
