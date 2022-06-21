@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import { styled, Theme } from "@mui/material/styles";
@@ -64,9 +64,14 @@ const links: ProjectsButtonLinkType = {
 interface IProjectsButtonsProps {
   activeLink: ProjectsButtonLinkKeyType;
   disabledLink?: ProjectsButtonLinkKeyType[];
+  theme?: Theme;
 }
 
-const ProjectsButtons: React.FC<IProjectsButtonsProps> = ({ activeLink, disabledLink }) => {
+const ProjectsButtons: React.FC<IProjectsButtonsProps> = ({ activeLink, disabledLink, theme }) => {
+  const mode = useMemo<"dark" | "light">(() => {
+    return theme?.palette?.mode === "dark" ? "dark" : "light";
+  }, [theme]);
+
   return (
     <Grid container justifyContent={"center"}>
       <Grid
@@ -79,7 +84,7 @@ const ProjectsButtons: React.FC<IProjectsButtonsProps> = ({ activeLink, disabled
       >
         <Grid item xs={"auto"}>
           <ButtonStyled
-            href={links.dex.url}
+            href={links.dex.url + "?mode=" + mode}
             className={activeLink === links.dex.key ? "active" : ""}
             disabled={disabledLink?.includes(links.dex.key)}
           >
@@ -88,7 +93,7 @@ const ProjectsButtons: React.FC<IProjectsButtonsProps> = ({ activeLink, disabled
         </Grid>
         <Grid item xs={"auto"}>
           <ButtonStyled
-            href={links.swap.url}
+            href={links.swap.url + "?mode=" + mode}
             className={activeLink === links.swap.key ? "active" : ""}
             disabled={disabledLink?.includes(links.swap.key)}
           >
@@ -97,7 +102,7 @@ const ProjectsButtons: React.FC<IProjectsButtonsProps> = ({ activeLink, disabled
         </Grid>
         <Grid item xs={"auto"}>
           <ButtonStyled
-            href={links.bridge.url}
+            href={links.bridge.url + "?mode=" + mode}
             className={activeLink === links.bridge.key ? "active" : ""}
             disabled={disabledLink?.includes(links.bridge.key)}
           >
@@ -106,7 +111,7 @@ const ProjectsButtons: React.FC<IProjectsButtonsProps> = ({ activeLink, disabled
         </Grid>
         <Grid item xs={"auto"}>
           <ButtonStyled
-            href={links.onRamp.url}
+            href={links.onRamp.url + "?mode=" + mode}
             className={activeLink === links.onRamp.key ? "active" : ""}
             disabled={disabledLink?.includes(links.onRamp.key)}
           >
