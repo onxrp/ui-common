@@ -14,7 +14,6 @@ import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import CircularProgress from "@mui/material/CircularProgress";
-import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import useTheme from "@mui/material/styles/useTheme";
 import axios from "axios";
 import _ from "lodash";
@@ -152,17 +151,7 @@ export default function ConnectButton({
                 </Typography>
               </Grid>
               <Grid item>
-                <Box
-                  sx={{
-                    display: "flex",
-                    cursor: "pointer",
-                    width: "16px",
-                    height: "16px",
-                  }}
-                  onClick={_cancelTransactionDebounce}
-                >
-                  <CloseButton />
-                </Box>
+                <CloseButton onClick={_cancelTransactionDebounce} />
               </Grid>
             </Grid>
             {signInLink ? (
