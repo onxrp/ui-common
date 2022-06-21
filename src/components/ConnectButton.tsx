@@ -9,17 +9,18 @@ import * as Sentry from "@sentry/react";
 import { io, Socket } from "socket.io-client";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import CircularProgress from "@mui/material/CircularProgress";
-import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import useTheme from "@mui/material/styles/useTheme";
 import axios from "axios";
 import _ from "lodash";
+
 import { formatNumber } from "../utils";
+
+import CloseButton from "./CloseButton";
 
 type SignInData = {
   expired: boolean;
@@ -150,24 +151,7 @@ export default function ConnectButton({
                 </Typography>
               </Grid>
               <Grid item>
-                <Box
-                  sx={{
-                    padding: "3px",
-                    borderRadius: "50%",
-                    backgroundColor: "text.modal",
-                    cursor: "pointer",
-                  }}
-                  onClick={_cancelTransactionDebounce}
-                >
-                  <CloseRoundedIcon
-                    sx={{
-                      display: "flex",
-                      fontSize: "0.625rem",
-                      stroke: "background.modalBody",
-                      strokeWidth: "2px",
-                    }}
-                  />
-                </Box>
+                <CloseButton onClick={_cancelTransactionDebounce} />
               </Grid>
             </Grid>
             {signInLink ? (
