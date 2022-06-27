@@ -10,8 +10,8 @@
     "build:js": "babel src --out-dir dist --copy-files --extensions \".ts,.tsx\" --source-maps inline",
     "prepare": "npm run build"
   },
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/index",
+  "typings": "dist/index",
   "files": [
     "dist"
   ],
