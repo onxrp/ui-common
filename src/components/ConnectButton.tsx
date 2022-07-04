@@ -51,7 +51,7 @@ export default function ConnectButton({
   useEffect(() => {
     let socket: Socket<{ signin: (data: any) => void }, any>;
     if (uuid) {
-      socket = io(`${process.env.REACT_APP_AXIOS_ROOT_URL}`);
+      socket = io(`${process.env.REACT_APP_AXIOS_ROOT_URL}`, { transports: ['websocket'] });
       socket.emit("subscribe-uuid", uuid);
       socket.on("signin", (data: SignInData) => {
         if (!data.expired) {
