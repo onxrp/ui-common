@@ -103,7 +103,6 @@ const Footer: React.FC<FooterProps> = ({ onSubscribe, theme }) => {
               container
               sx={footerLinks}
               columnSpacing={{ xs: 5, md: 10 }}
-              xs={12}
               wrap="wrap"
               zeroMinWidth
             >
