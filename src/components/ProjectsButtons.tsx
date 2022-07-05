@@ -6,14 +6,11 @@ import { styled, Theme } from "@mui/material/styles";
 const wrapperSx = (theme: Theme) => ({
   alignContent: "center",
   justifyContent: "space-between",
-  backgroundColor: {
-    xs: "transparent",
-    sm: theme.palette.mode === "dark" ? "rgb(107 107 107 / 50%)" : "#DBD6DF",
-  },
+  backgroundColor: theme.palette.mode === "dark" ? "rgb(107 107 107 / 50%)" : "#DBD6DF",
   padding: "7px 0px",
-  borderRadius: { xs: "50%", md: "24px" },
+  borderRadius: "24px",
   "& .MuiGrid-item": {
-    padding: { md: "0 10px" },
+    padding: { xs: "5px", md: "0 10px" },
   },
 });
 
@@ -28,11 +25,12 @@ const ButtonStyled = styled(Button)(({ theme }) => ({
   textTransform: "uppercase",
   textAlign: "center",
   [theme.breakpoints.down("sm")]: {
-    width: "18vw",
-    height: "18vw",
+    width: "15vw",
+    height: "auto",
     minWidth: "auto",
-    fontSize: "0.75rem",
-    borderRadius: "50%",
+    fontSize: "0.625rem",
+    padding: "14px 12px",
+    borderRadius: "24px",
     backgroundColor: theme.palette.mode === "dark" ? "#000" : "#C9C1D6",
   },
   "&:hover, &.active": {
@@ -45,7 +43,7 @@ const ButtonStyled = styled(Button)(({ theme }) => ({
   },
 }));
 
-type ProjectsButtonLinkKeyType = "dex" | "swap" | "bridge" | "onRamp";
+type ProjectsButtonLinkKeyType = "dex" | "swap" | "bridge" | "onRamp" | "deFi";
 
 type ProjectsButtonLinkType =
   Record<ProjectsButtonLinkKeyType, {
@@ -59,6 +57,7 @@ const links: ProjectsButtonLinkType = {
   swap: { key: "swap", url: "https://dex.onxrp.com/swap", target: "_self" },
   bridge: { key: "bridge", url: "https://bridge.onxrp.com", target: "_self" },
   onRamp: { key: "onRamp", url: "https://dex.onxrp.com/onRamp", target: "_self" },
+  deFi: { key: "deFi", url: "https://onavax.com", target: "_self" },
 };
 
 interface IProjectsButtonsProps {
@@ -111,11 +110,20 @@ const ProjectsButtons: React.FC<IProjectsButtonsProps> = ({ activeLink, disabled
         </Grid>
         <Grid item xs={"auto"}>
           <ButtonStyled
+            href={links.deFi.url + "?mode=" + mode}
+            className={activeLink === links.deFi.key ? "active" : ""}
+            disabled={disabledLink?.includes(links.deFi.key)}
+          >
+            DEFI
+          </ButtonStyled>
+        </Grid>
+        <Grid item xs={"auto"}>
+          <ButtonStyled
             href={links.onRamp.url + "?mode=" + mode}
             className={activeLink === links.onRamp.key ? "active" : ""}
             disabled={disabledLink?.includes(links.onRamp.key)}
           >
-            Fiat on-ramp
+            Fiat
           </ButtonStyled>
         </Grid>
       </Grid>
