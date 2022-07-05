@@ -57,7 +57,7 @@ const links: ProjectsButtonLinkType = {
   swap: { key: "swap", url: "https://dex.onxrp.com/swap", target: "_self" },
   bridge: { key: "bridge", url: "https://bridge.onxrp.com", target: "_self" },
   onRamp: { key: "onRamp", url: "https://dex.onxrp.com/onRamp", target: "_self" },
-  deFi: { key: "deFi", url: "https://onavax.com", target: "_self" },
+  deFi: { key: "deFi", url: "https://onavax.com", target: "_blank" },
 };
 
 interface IProjectsButtonsProps {
@@ -123,7 +123,7 @@ const ProjectsButtons: React.FC<IProjectsButtonsProps> = ({ activeLink, disabled
             className={activeLink === links.onRamp.key ? "active" : ""}
             disabled={disabledLink?.includes(links.onRamp.key)}
           >
-            Fiat
+            Cash
           </ButtonStyled>
         </Grid>
       </Grid>
