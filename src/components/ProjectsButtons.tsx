@@ -7,10 +7,10 @@ const wrapperSx = (theme: Theme) => ({
   alignContent: "center",
   justifyContent: "space-between",
   backgroundColor: theme.palette.mode === "dark" ? "rgb(107 107 107 / 50%)" : "#DBD6DF",
-  padding: "7px 0px",
+  padding: { xs: "5px", md: "7px 0" },
   borderRadius: "24px",
   "& .MuiGrid-item": {
-    padding: { xs: "5px", md: "0 10px" },
+    padding: { xs: "0", md: "0 10px" },
   },
 });
 
@@ -26,10 +26,10 @@ const ButtonStyled = styled(Button)(({ theme }) => ({
   textAlign: "center",
   [theme.breakpoints.down("sm")]: {
     width: "15vw",
-    height: "auto",
+    height: "12vw",
     minWidth: "auto",
     fontSize: "0.625rem",
-    padding: "14px 12px",
+    padding: "0",
     borderRadius: "24px",
     backgroundColor: theme.palette.mode === "dark" ? "#000" : "#C9C1D6",
   },
