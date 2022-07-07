@@ -139,6 +139,9 @@ const Footer: React.FC<FooterProps> = ({ onSubscribe, theme }) => {
                     <MuiLink href="https://dex.onxrp.com/">DEX</MuiLink>
                   </MenuItem>
                   <MenuItem>
+                    <MuiLink href="https://onavax.com/">DEFI</MuiLink>
+                  </MenuItem>
+                  <MenuItem>
                     <MuiLink href="https://dex.onxrp.com/">OXP</MuiLink>
                   </MenuItem>
                   <MenuItem>
