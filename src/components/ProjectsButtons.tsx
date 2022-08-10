@@ -45,16 +45,18 @@ const ButtonStyled = styled(Button)(({ theme }) => ({
 
 type ProjectsButtonLinkKeyType = "dex" | "swap" | "bridge" | "onRamp" | "deFi";
 
-type ProjectsButtonLinkType =
-  Record<ProjectsButtonLinkKeyType, {
-    key: ProjectsButtonLinkKeyType,
-    url: string,
-    target?: "_self" | "_blank" | "_parent" | "_top"
-  }>
+type ProjectsButtonLinkType = Record<
+  ProjectsButtonLinkKeyType,
+  {
+    key: ProjectsButtonLinkKeyType;
+    url: string;
+    target?: "_self" | "_blank" | "_parent" | "_top";
+  }
+>;
 
 const links: ProjectsButtonLinkType = {
   dex: { key: "dex", url: "https://dex.onxrp.com/", target: "_self" },
-  swap: { key: "swap", url: "https://dex.onxrp.com/swap", target: "_self" },
+  swap: { key: "swap", url: "https://dex-test.onxrp.com/swap", target: "_self" },
   bridge: { key: "bridge", url: "https://bridge.onxrp.com", target: "_self" },
   onRamp: { key: "onRamp", url: "https://dex.onxrp.com/onRamp", target: "_self" },
   deFi: { key: "deFi", url: "https://onavax.com", target: "_blank" },
@@ -73,14 +75,7 @@ const ProjectsButtons: React.FC<IProjectsButtonsProps> = ({ activeLink, disabled
 
   return (
     <Grid container justifyContent={"center"}>
-      <Grid
-        container
-        item
-        xs={12}
-        md={"auto"}
-        textAlign={"left"}
-        sx={wrapperSx}
-      >
+      <Grid container item xs={12} md={"auto"} textAlign={"left"} sx={wrapperSx}>
         <Grid item xs={"auto"}>
           <ButtonStyled
             href={links.dex.url + "?mode=" + mode}
