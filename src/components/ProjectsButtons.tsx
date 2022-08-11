@@ -56,7 +56,7 @@ type ProjectsButtonLinkType = Record<
 
 const links: ProjectsButtonLinkType = {
   dex: { key: "dex", url: "https://dex.onxrp.com/", target: "_self" },
-  swap: { key: "swap", url: "https://dex-test.onxrp.com/swap", target: "_self" },
+  swap: { key: "swap", url: "https://dex.onxrp.com/swap", target: "_self" },
   bridge: { key: "bridge", url: "https://bridge.onxrp.com", target: "_self" },
   onRamp: { key: "onRamp", url: "https://dex.onxrp.com/onRamp", target: "_self" },
   deFi: { key: "deFi", url: "https://onavax.com", target: "_blank" },
