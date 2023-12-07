@@ -1,6 +1,6 @@
 {
   "name": "@onxrp/ui-common",
-  "version": "1.0.62",
+  "version": "1.1.0",
   "description": "OnXRP Shared UI components",
   "scripts": {
     "type-check": "tsc --noEmit",
@@ -23,8 +23,8 @@
   },
   "repository": "https://github.com/onxrp/ui-common.git",
   "dependencies": {
-    "@mui/icons-material": "^5.4.2",
-    "@mui/material": "^5.8.2",
+    "@mui/icons-material": "^5.14.19",
+    "@mui/material": "^5.14.20",
     "@sentry/react": "^6.19.2",
     "axios": "^0.24.0",
     "react": "^17.0.2",
